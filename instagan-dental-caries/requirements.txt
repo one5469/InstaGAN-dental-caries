@@ -1,0 +1,11 @@
+# Package list inferred from imports; original experiment versions are not pinned.
+torch
+torchvision
+numpy
+pandas
+Pillow
+opencv-python
+matplotlib
+scipy
+tqdm
+lpips

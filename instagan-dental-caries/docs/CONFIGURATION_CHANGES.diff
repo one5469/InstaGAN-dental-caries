@@ -1,0 +1,23 @@
+--- original/instaGAN_ver1.3.py
++++ prepared/instaGAN_ver1.3.py
+@@ -30,17 +30,17 @@
+ # 설정
+ # ============================================
+ GPU_ID = 3
+-os.environ["CUDA_VISIBLE_DEVICES"] = str(GPU_ID)
++os.environ.setdefault("CUDA_VISIBLE_DEVICES", str(GPU_ID))
+ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+ 
+-DATA_DIR = "/home/dabs/JuneHyoung/20250708_JR_Data/teeth_analysis"
++DATA_DIR = os.environ.get("INSTAGAN_DATA_DIR", "./data/teeth_analysis")
+ METADATA_FILE = f"{DATA_DIR}/metadata_v20_1_20251123_Validation_data.json"
+ LABEL_DIR_LOWER = f"{DATA_DIR}/Validation Data/라벨데이터/lower/5.lower"
+ LABEL_DIR_UPPER = f"{DATA_DIR}/Validation Data/라벨데이터/upper/4.upper"
+ IMAGE_DIR_LOWER = f"{DATA_DIR}/Validation Data/원데이터/lower/5.lower"
+ IMAGE_DIR_UPPER = f"{DATA_DIR}/Validation Data/원데이터/upper/4.upper"
+ 
+-OUTPUT_DIR = f"{DATA_DIR}/instagan_teeth_by_position"
++OUTPUT_DIR = os.environ.get("INSTAGAN_OUTPUT_DIR", "./outputs")
+ CHECKPOINT_DIR = f"{OUTPUT_DIR}/checkpoints"
+ RESULTS_DIR = f"{OUTPUT_DIR}/results"
+ DEBUG_DIR = f"{OUTPUT_DIR}/debug"
